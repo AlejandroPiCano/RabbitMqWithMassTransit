@@ -19,11 +19,18 @@ builder.Services.AddMassTransit(x =>
     x.AddConsumer<ObservationConsumer>();
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+        cfg.Host(builder.Configuration["ServicesBus:Server"], "/", h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(builder.Configuration["ServicesBus:UserName"]);
+            h.Password(builder.Configuration["ServicesBus:Password"]);
+            //h.Username("guest");
+            //h.Password("guest");
         });
+
+        ////Configure Queue endopint
+        //cfg.ReceiveEndpoint(builder.Configuration["ServicesBus:Queue"], c => {
+        //    c.ConfigureConsumer<ObservationConsumer>(context);
+        //});
 
         cfg.ConfigureEndpoints(context);
     });

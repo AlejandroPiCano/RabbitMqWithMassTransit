@@ -23,10 +23,12 @@ builder.Services.AddMassTransit(x =>
 
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+        cfg.Host(builder.Configuration["ServicesBus:Server"], "/", h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(builder.Configuration["ServicesBus:UserName"]);
+            h.Password(builder.Configuration["ServicesBus:Password"]);
+            //h.Username("guest");
+            //h.Password("guest");
         });
 
         cfg.ConfigureEndpoints(context);
