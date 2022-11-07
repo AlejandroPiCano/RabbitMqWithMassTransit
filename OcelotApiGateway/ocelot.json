@@ -1,0 +1,36 @@
+{
+  "Routes": [
+    {
+      //Path of api gateway
+      "UpstreamPathTemplate": "/Obs/{path}",
+      "UpstreamHttpMethod": [ "GET" ],
+      //Host and port of microservice
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7171"
+        }
+      ],
+      //Path of microservice
+      "DownstreamPathTemplate": "/{path}"
+    },
+
+    {
+      //Path of api gateway
+      "UpstreamPathTemplate": "/Prog/{path}",
+      "UpstreamHttpMethod": [ "GET" ],
+      //Host and port of microservice
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7294"
+        }
+      ],
+      //Path of microservice
+      "DownstreamPathTemplate": "/{path}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5021"
+  }
+}

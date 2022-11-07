@@ -15,7 +15,6 @@ builder.Services.AddDbContext<ProgressNotesDbContext>(o => o.UseSqlServer(builde
 #region MassTransit
 builder.Services.AddMassTransit(x =>
 {
-    // elided...
     x.AddConsumer<ObservationConsumer>();
     x.UsingRabbitMq((context, cfg) =>
     {

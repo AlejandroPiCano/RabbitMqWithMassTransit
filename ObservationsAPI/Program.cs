@@ -19,8 +19,6 @@ builder.Services.AddDbContext<ObservationsDbContext>
 #region MassTransit
 builder.Services.AddMassTransit(x =>
 {
-    // elided...
-
     x.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(builder.Configuration["ServicesBus:Server"], "/", h =>
@@ -34,8 +32,6 @@ builder.Services.AddMassTransit(x =>
         cfg.ConfigureEndpoints(context);
     });
 });
-
-//builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddMassTransitHostedService(true);
 #endregion
