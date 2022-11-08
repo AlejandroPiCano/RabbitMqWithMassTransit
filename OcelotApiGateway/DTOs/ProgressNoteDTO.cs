@@ -1,17 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ProgressNotesAPI.Infrastructure
+namespace OcelotApiGateway.DTOs
 {
-    public class ProgressNote
+    public class ProgressNoteDTO
     {
-        [Key]
         public int Id { get; set; }
-        [Required]
-        [MaxLength(150)]
+
         public string Description { get; set; }
-                
-        public int? ObservationId { get; set; }
 
         public DateTime CreateDateTime{ get; set; }
+
+        public int ObservationId { get; set; }
     }
 }

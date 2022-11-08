@@ -1,5 +1,6 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using OcelotApiGateway;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("ocelot.json");
@@ -13,12 +14,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddLogging(logging => logging.AddConsole());
 
 // adding ocelot
-builder.Services.AddOcelot();
+builder.Services.AddOcelot()
+    .AddDelegatingHandler<RemoveEncodingDelegatingHandler>(true)
+    .AddSingletonDefinedAggregator<ObservationsProgressNotesAggregator>();
 
 
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -86,7 +86,7 @@ namespace ObservationsAPI.Controllers
                 _context.Observations.Add(observation);
                 await _context.SaveChangesAsync();
 
-                await publishEndpoint.Publish<Message>(new Message() { Description = observation.Description });
+                await publishEndpoint.Publish<Message>(new Message() { Description = observation.Description, ObservationId = observation.Id });
                 return CreatedAtAction("GetObservation", new { id = observation.Id }, observation);
             }
             catch (Exception e)

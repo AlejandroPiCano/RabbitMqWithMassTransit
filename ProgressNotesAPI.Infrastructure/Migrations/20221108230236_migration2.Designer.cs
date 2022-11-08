@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgressNotesAPI.Infrastructure;
 
@@ -11,9 +12,10 @@ using ProgressNotesAPI.Infrastructure;
 namespace ProgressNotesAPI.Infrastructure.Migrations
 {
     [DbContext(typeof(ProgressNotesDbContext))]
-    partial class ProgressNotesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221108230236_migration2")]
+    partial class migration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
