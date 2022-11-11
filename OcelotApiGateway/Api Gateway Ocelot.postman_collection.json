@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "2e830904-976c-4ec1-8de9-d6aa8b8d460d",
+		"name": "Api Gateway Ocelot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Aggregates Obs + ProgressNotes",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "MYULTRASECRETAPIKEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5021/api/observationsProgressNotes",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"api",
+						"observationsProgressNotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL Obs",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "MYULTRASECRETAPIKEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5021/obs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"obs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL ProgressNotes",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "MYULTRASECRETAPIKEY",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5021/prog",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5021",
+					"path": [
+						"prog"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
